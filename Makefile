@@ -7,4 +7,3 @@ primes: primes.c
 
 clean:
 	rm -f primes
-
