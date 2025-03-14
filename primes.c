@@ -97,9 +97,9 @@ bool is_prime(u32 n) {
   }
 
   // checking the bases 2, 7, and 61 is enough for u32s
-  if (!is_strong_probable_prime(2, n)) return false;
-  if (!is_strong_probable_prime(7, n)) return false;
-  return is_strong_probable_prime(61, n);
+  return is_strong_probable_prime( 2, n)
+      && is_strong_probable_prime( 7, n)
+      && is_strong_probable_prime(61, n);
 }
 
 int main() {
