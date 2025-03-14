@@ -100,28 +100,18 @@ int main() {
 }
 
 /*
-assume n > 2 (we can manually test for 2)
-
-we know 0 <= x < n
-
-suppose x != 1 and x != n - 1
-
 take x*x % n = 1
-=> x*x - 1 = kn for some k
-=> (x-1)(x+1) = kn
+=> n divides x*x - 1
+=> n divides (x-1)(x+1)
 
-since n is prime, by Euclid's lemma n divides at least one of (x-1) or (x+1)
+since n is prime,
+by Euclid's lemma, n divides at least one of (x-1) or (x+1)
 
-but x - 1 != 0 since x != 1
-and x + 1 != n since x != n - 1
-and x - 1 != n since x <  n
-and x + 1 != 0 since x >= 0
-and there are no other ways for them to be multiples of n
-since n > 2 and 0 <= x < n
-ie all the other multiples are too far from x
+so x-1 = kn for some k
+=> x % n = 1
 
-contradiction
-so x = 1 or x = n - 1
+or x+1 = kn for some k
+=> x % n = n - 1
 */
 
 
