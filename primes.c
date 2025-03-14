@@ -37,10 +37,10 @@ bool is_strong_probable_prime(u32 base, u32 n) {
   // if n is prime, then by the notes at the bottom, if x*x % n = 1, then x = 1 or x = n - 1
   //
   // what we're doing is we're repeatedly taking the square root of base^(n-1)
-  // before squaring that back into base^(n-1) to see if both properties hold
+  // before repeatedly squaring that back into base^(n-1) to ensure both properties hold
 
-  // since base is assumed to be prime, only this check is needed
-  // to know whether n is coprime to base
+  // since base is assumed to be prime,
+  // only this check is needed to know whether n is coprime to base
   if (n % base == 0)
     return n == base;
 
@@ -142,4 +142,3 @@ count_trailing_zeros: https://en.wikipedia.org/w/index.php?title=Find_first_set&
 
 // This work is licensed under CC BY-SA 4.0
 // https://creativecommons.org/licenses/by-sa/4.0/
-
