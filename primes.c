@@ -24,17 +24,6 @@ u32 powmod(u32 base, u32 exponent, u32 m) {
   return result;
 }
 
-unsigned count_trailing_zeros(u32 n) {
-  unsigned count = 0;
-  if (!(n & 0x0000ffff)) { count += 16; n >>= 16; }
-  if (!(n & 0x000000ff)) { count +=  8; n >>=  8; }
-  if (!(n & 0x0000000f)) { count +=  4; n >>=  4; }
-  if (!(n & 0x00000003)) { count +=  2; n >>=  2; }
-  if (!(n & 0x00000001))   count +=  1;
-
-  return count;
-}
-
 // checks whether n is a strong probable prime to base
 // assumes base is prime
 bool is_strong_probable_prime(u32 base, u32 n) {
@@ -56,7 +45,7 @@ bool is_strong_probable_prime(u32 base, u32 n) {
     return n == base;
 
   // power of 2 in prime factorization of n-1
-  unsigned e = count_trailing_zeros(n - 1);
+  unsigned e = __builtin_ctzl(n - 1);
 
   // this is the furthest we can go with square roots while keeping it an integer
   u32 power = powmod(base, (n - 1) >> e, n);
