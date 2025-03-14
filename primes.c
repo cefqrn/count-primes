@@ -18,7 +18,7 @@ u32 powmod(u32 base, u32 exponent, u32 m) {
       result = (u64)result * power % m;
 
     power = (u64)power * power % m;
-    exponent /= 2;
+    exponent >>= 1;
   }
 
   return result;
